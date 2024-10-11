@@ -24,13 +24,17 @@ function Contenedor(props) {
 
 function Contador() {
   const [count, setCount] = useState(0);
-  
+
+  const incrementar = () => setCount(count + 1);
+  const decrementar = () => setCount(count - 1);
+  const reiniciar = () => setCount(0);
+
   return (
     <div>
-      <p>Haz presionado  {count} veces</p>
-      <button onClick={() => setCount(count + 1)}>
-        Presioname
-      </button>
+      <p> Haz presionado {count} veces</p>
+      <button onClick={incrementar}>Incrementar</button>
+      <button onClick={decrementar} disabled={count === 0}>Decrementar</button>
+      <button onClick={reiniciar}>Reiniciar</button>
     </div>
   );
 }
